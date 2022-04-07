@@ -3,7 +3,7 @@
     stages {
         stage('build') {
             steps { 
-                sh'''apt update'''
+                sh'''apt-get update && apt-get upgrade -y'''
                 sh'''npm start app.js'''
             }
         }
