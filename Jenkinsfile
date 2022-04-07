@@ -3,6 +3,8 @@
     stages {
         stage('build') {
             steps { 
+                sh'''apt install nodejs -y'''
+                sh'''npm i'''
                 sh'''npm start app.js'''
             }
         }
