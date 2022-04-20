@@ -8,6 +8,9 @@
              }  
          }  
      }  
+     environment {
+        EMAIL_TO = 'barath.doodleblue@gmail.com'
+    }
      post {  
          always {  
              echo 'This will always run'  
