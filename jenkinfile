@@ -4,7 +4,7 @@
         stage('build') {
             steps {
                 sh'''npm -v'''
-                sh'''pm2 start app.js'''
+                sh'''pm2 start index.js'''
                 sh'''emailext attachLog: true, body: 'build is stopped', subject: 'build is stopped', to: 'barath.doodleblue@gmail.com' '''
             }
         }
