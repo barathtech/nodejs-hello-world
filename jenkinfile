@@ -9,7 +9,7 @@
 		  }
         stage('email notifi') {
             steps {  
-                sh '' 'emailext body: '', recipientProviders: [brokenBuildSuspects()], subject: 'build failing', to: 'barath.doodleblue@gmail.com' '''
+                 emailext body: '', recipientProviders: [brokenBuildSuspects()], subject: 'build failing', to: 'barath.doodleblue@gmail.com' 
 	    }
           }
         }
