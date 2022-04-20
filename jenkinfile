@@ -4,7 +4,6 @@
         stage('build') {
             steps {
                 sh '''npm -v'''
-		sh '''pm2 delete index.js'''
                 sh '''pm2 start index.js'''
             }
 		  }
