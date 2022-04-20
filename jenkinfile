@@ -1,16 +1,28 @@
- pipeline {
-    agent any
-    stages {
-        stage('build') {
-            steps {
+  pipeline {  
+     agent any  
+     stages {  
+         stage('Test') {  
+             steps {  
                 sh '''npm -v'''
-                sh '''pm2 start app.js'''
-            }
-		  }
-        stage('email notifi') {
-            steps {  
-                 emailext body: '', recipientProviders: [brokenBuildSuspects()], subject: 'build failing', to: 'barath.doodleblue@gmail.com' 
-	    }
-          }
-        }
-     }
+                sh '''pm2 start index.js'''  
+             }  
+         }  
+     }  
+     post {  
+         always {  
+             echo 'This will always run'  
+         }  
+         success {  
+             echo 'This will run only if successful'  
+         }  
+         failure {  
+                  emailext body: '', recipientProviders: [brokenBuildSuspects()], subject: 'build failing', to: 'barath.doodleblue@gmail.com'          }  
+         unstable {  
+             echo 'This will run only if the run was marked as unstable'  
+         }  
+         changed {  
+             echo 'This will run only if the state of the Pipeline has changed'  
+             echo 'For example, if the Pipeline was previously failing but is now successful'  
+         }  
+     }  
+ }
