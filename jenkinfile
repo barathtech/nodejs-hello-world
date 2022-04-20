@@ -7,8 +7,8 @@
                 sh '''pm2 start app.js'''
             }
 		  }
-        stage('email notifi') {
-            steps {  
+        post {
+        always {  
                  emailext body: '', recipientProviders: [brokenBuildSuspects()], subject: 'build failing', to: 'barath.doodleblue@gmail.com' 
 	    }
           }
