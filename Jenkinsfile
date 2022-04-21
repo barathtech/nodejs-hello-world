@@ -3,7 +3,7 @@
     stages {
         stage('build') {
             steps { 
-                sh'''apt pm2 index.js'''
+                sh''' pm2 start index.js'''
                 
             }
         }
