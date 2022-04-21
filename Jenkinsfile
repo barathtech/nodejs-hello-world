@@ -3,16 +3,15 @@
     stages {
         stage('build') {
             steps { 
-                sh'''apt install nodejs -y'''
-                sh'''npm i'''
-                sh'''npm start app.js'''
+                sh'''apt pm2 index.js'''
+                
             }
         }
         stage('Deploy') {
             steps{
               sshagent(credentials : ['barath']) {
-              sh 'ssh -o StrictHostKeyChecking=no ubuntu@10.0.0.224'
-              sh 'scp -p -r /var/lib/jenkins/workspace/demo ubuntu@10.0.0.224:/var/www/'
+              sh 'ssh -o StrictHostKeyChecking=no root@54.147.63.170'
+              sh 'scp -p -r /var/lib/jenkins/workspace/demo root@54.147.63.170:/var/www/'
               }
             }
         }
