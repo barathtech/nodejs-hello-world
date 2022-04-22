@@ -13,7 +13,7 @@
              echo 'This will always run'  
          }  
          success {  
-             echo 'This will run only if successful'  
+                emailext body: 'mail build sucess', subject: 'build success', to: 'barath.doodleblue@gmail.com'  
          }  
          failure {  
                   emailext body: '', recipientProviders: [brokenBuildSuspects()], subject: 'build failing', to: 'barath.doodleblue@gmail.com'          }  
