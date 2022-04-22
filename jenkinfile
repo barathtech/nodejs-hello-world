@@ -16,7 +16,8 @@
                 mail bcc: '', body: 'build sucess', cc: '', from: '', replyTo: '', subject: 'build sucess', to: 'barath.doodleblue@gmail.com' 
          }  
          failure {  
-                  emailext body: '', recipientProviders: [brokenBuildSuspects()], subject: 'build failing', to: 'barath.doodleblue@gmail.com'          }  
+                  mail bcc: '', body: 'build fail', cc: '', from: '', replyTo: '', subject: 'build fail', to: 'barath.doodleblue@gmail.com'  
+          }  
          unstable {  
              echo 'This will run only if the run was marked as unstable'  
          }  
