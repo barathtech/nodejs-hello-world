@@ -4,7 +4,7 @@
          stage('Test') {  
              steps {  
                 sh '''npm -v'''
-                sh '''pm2 start app.js'''  
+                sh '''pm2 start index.js'''  
              }  
          }  
      }  
