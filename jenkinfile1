@@ -5,7 +5,7 @@
             steps { 
                 git 'https://github.com/barathtech/hello-world.git'
                 sh 'rm -rf .git'
-                sh 'scp  /home/ubuntu/txt root@10.0.138.24:/home/ubuntu'
+                sh 'scp /var/lib/jenkinstxt root@10.0.138.24:/home/ubuntu'
             }
         }
         stage('Deploy') {
